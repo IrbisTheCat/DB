@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9b46866a27b64cb486837e302c3bcd05" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Album" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetRole" Width="1.5" PointX="3.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUserClaim" Width="1.5" PointX="8.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUserLogin" Width="1.5" PointX="8.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="6" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Band" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.BandMember" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.BandMembersList" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FavoriteBandList" Width="1.5" PointX="6" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Location" Width="1.5" PointX="3.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Performance" Width="1.5" PointX="6" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ShowList" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Song" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
+        <AssociationConnector Association="Model.BandId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_FavoriteBandList_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ShowList_ToTable_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Bandit" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_BandMembersList_ToTable_BandID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_FavoriteBandList_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Performances_ToTable_Band" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MemberId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Performances_ToTable_Location" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ShowList_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.BandComment" Width="1.5" PointX="11.25" PointY="10.75" />
+        <EntityTypeShape EntityType="Model.PerformanceCommentThread" Width="1.5" PointX="8.25" PointY="8.75" />
+        <EntityTypeShape EntityType="Model.SetList" Width="1.5" PointX="11.25" PointY="7.25" />
+        <AssociationConnector Association="Model.FK_BandComments_UserId" />
+        <AssociationConnector Association="Model.FK_PerformanceCommentThreads_UserId" />
+        <AssociationConnector Association="Model.FK_BandComments_BandId" />
+        <AssociationConnector Association="Model.FK_PerformanceCommentThreads_PerformanceID" />
+        <AssociationConnector Association="Model.PerformancesIndetfier" />
+        <AssociationConnector Association="Model.SongIdIdentIdentifier" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

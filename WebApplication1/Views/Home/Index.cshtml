@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication1.Models.Band>
+
+@{
+    ViewBag.Title = "List of Bands and Performances";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BandName)
+        </th>
+        <th>
+            Performance
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.BandName, "Index", "BandComments", new { bandId = item.Id }, null)
+        </td>
+        <td>
+@foreach (var performance in item.Performances)
+{
+   
+    @Html.ActionLink(performance.Name,"Index", "PerformanceComments", new { perfId=performance.Id }, null)
+    <br />
+    <div>
+        @Html.DisplayFor(modelItem => performance.Date)
+    </div>
+    <br />
+    <div>
+       @Html.DisplayFor(modelItem => performance.Location.LocationName)
+        <br/>
+        @Html.DisplayFor(modelItem => performance.Location.StreetAddress)
+        @Html.DisplayFor(modelItem => performance.Location.City)
+        @Html.DisplayFor(modelItem => performance.Location.State)
+        @Html.DisplayFor(modelItem => performance.Location.ZIP)
+    </div>
+    <br />
+  
+}
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,521 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Album">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecordLable" Type="varchar(max)" />
+    <Property Name="BandID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Band">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BandName" Type="varchar" MaxLength="50" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="BreakUpDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="BandComments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BandID" Type="bigint" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+    <Property Name="Comment" Type="text" />
+  </EntityType>
+  <EntityType Name="BandMember">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar(max)" />
+    <Property Name="LastName" Type="varchar(max)" />
+    <Property Name="Age" Type="int" />
+    <Property Name="InstrumentPlayed" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="BandMembersList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BandId" Type="bigint" />
+    <Property Name="BandMember" Type="bigint" />
+  </EntityType>
+  <EntityType Name="FavoriteBandList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="BandId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocationName" Type="text" />
+    <Property Name="StreetAddress" Type="text" />
+    <Property Name="City" Type="text" />
+    <Property Name="State" Type="text" />
+    <Property Name="ZIP" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="PerformanceCommentThreads">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Comment" Type="varchar(max)" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+    <Property Name="PerformanceID" Type="int" />
+  </EntityType>
+  <EntityType Name="Performances">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BandId" Type="bigint" Nullable="false" />
+    <Property Name="LocationId" Type="bigint" Nullable="false" />
+    <Property Name="SetListId" Type="bigint" Nullable="false" />
+    <Property Name="Duriation" Type="time" Precision="7" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Name" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="SetList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PerformanceID" Type="int" />
+    <Property Name="SongID" Type="int" />
+  </EntityType>
+  <EntityType Name="ShowList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+    <Property Name="PerformanceId" Type="int" />
+  </EntityType>
+  <EntityType Name="Songs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SongName" Type="varchar(max)" />
+    <Property Name="ReleaseDate" Type="datetime" />
+    <Property Name="BandID" Type="bigint" />
+  </EntityType>
+  <Association Name="BandId">
+    <End Role="Band" Type="Self.Band" Multiplicity="0..1" />
+    <End Role="Album" Type="Self.Album" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Band">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Album">
+        <PropertyRef Name="BandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Bandit">
+    <End Role="Band" Type="Self.Band" Multiplicity="0..1" />
+    <End Role="Songs" Type="Self.Songs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Band">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Songs">
+        <PropertyRef Name="BandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BandComments_BandId">
+    <End Role="Band" Type="Self.Band" Multiplicity="0..1" />
+    <End Role="BandComments" Type="Self.BandComments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Band">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BandComments">
+        <PropertyRef Name="BandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BandComments_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="BandComments" Type="Self.BandComments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BandComments">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BandMembersList_ToTable_BandID">
+    <End Role="Band" Type="Self.Band" Multiplicity="0..1" />
+    <End Role="BandMembersList" Type="Self.BandMembersList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Band">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BandMembersList">
+        <PropertyRef Name="BandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FavoriteBandList_ToTable">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="FavoriteBandList" Type="Self.FavoriteBandList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FavoriteBandList">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FavoriteBandList_ToTable_1">
+    <End Role="Band" Type="Self.Band" Multiplicity="1" />
+    <End Role="FavoriteBandList" Type="Self.FavoriteBandList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Band">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FavoriteBandList">
+        <PropertyRef Name="BandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerformanceCommentThreads_PerformanceID">
+    <End Role="Performances" Type="Self.Performances" Multiplicity="0..1" />
+    <End Role="PerformanceCommentThreads" Type="Self.PerformanceCommentThreads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Performances">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PerformanceCommentThreads">
+        <PropertyRef Name="PerformanceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerformanceCommentThreads_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="PerformanceCommentThreads" Type="Self.PerformanceCommentThreads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PerformanceCommentThreads">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Performances_ToTable_Band">
+    <End Role="Band" Type="Self.Band" Multiplicity="1" />
+    <End Role="Performances" Type="Self.Performances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Band">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Performances">
+        <PropertyRef Name="BandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Performances_ToTable_Location">
+    <End Role="Location" Type="Self.Location" Multiplicity="1" />
+    <End Role="Performances" Type="Self.Performances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Performances">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShowList_ToTable">
+    <End Role="Performances" Type="Self.Performances" Multiplicity="0..1" />
+    <End Role="ShowList" Type="Self.ShowList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Performances">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShowList">
+        <PropertyRef Name="PerformanceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShowList_ToTable_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="ShowList" Type="Self.ShowList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShowList">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MemberId">
+    <End Role="BandMember" Type="Self.BandMember" Multiplicity="0..1" />
+    <End Role="BandMembersList" Type="Self.BandMembersList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BandMember">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BandMembersList">
+        <PropertyRef Name="BandMember" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PerformancesIndetfier">
+    <End Role="Performances" Type="Self.Performances" Multiplicity="0..1" />
+    <End Role="SetList" Type="Self.SetList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Performances">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SetList">
+        <PropertyRef Name="PerformanceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SongIdIdentIdentifier">
+    <End Role="Songs" Type="Self.Songs" Multiplicity="0..1" />
+    <End Role="SetList" Type="Self.SetList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Songs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SetList">
+        <PropertyRef Name="SongID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Album" EntityType="Self.Album" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Band" EntityType="Self.Band" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BandComments" EntityType="Self.BandComments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BandMember" EntityType="Self.BandMember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BandMembersList" EntityType="Self.BandMembersList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FavoriteBandList" EntityType="Self.FavoriteBandList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PerformanceCommentThreads" EntityType="Self.PerformanceCommentThreads" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Performances" EntityType="Self.Performances" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SetList" EntityType="Self.SetList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShowList" EntityType="Self.ShowList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Songs" EntityType="Self.Songs" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="BandId" Association="Self.BandId">
+      <End Role="Band" EntitySet="Band" />
+      <End Role="Album" EntitySet="Album" />
+    </AssociationSet>
+    <AssociationSet Name="Bandit" Association="Self.Bandit">
+      <End Role="Band" EntitySet="Band" />
+      <End Role="Songs" EntitySet="Songs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BandComments_BandId" Association="Self.FK_BandComments_BandId">
+      <End Role="Band" EntitySet="Band" />
+      <End Role="BandComments" EntitySet="BandComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BandComments_UserId" Association="Self.FK_BandComments_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="BandComments" EntitySet="BandComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BandMembersList_ToTable_BandID" Association="Self.FK_BandMembersList_ToTable_BandID">
+      <End Role="Band" EntitySet="Band" />
+      <End Role="BandMembersList" EntitySet="BandMembersList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FavoriteBandList_ToTable" Association="Self.FK_FavoriteBandList_ToTable">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="FavoriteBandList" EntitySet="FavoriteBandList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FavoriteBandList_ToTable_1" Association="Self.FK_FavoriteBandList_ToTable_1">
+      <End Role="Band" EntitySet="Band" />
+      <End Role="FavoriteBandList" EntitySet="FavoriteBandList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerformanceCommentThreads_PerformanceID" Association="Self.FK_PerformanceCommentThreads_PerformanceID">
+      <End Role="Performances" EntitySet="Performances" />
+      <End Role="PerformanceCommentThreads" EntitySet="PerformanceCommentThreads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerformanceCommentThreads_UserId" Association="Self.FK_PerformanceCommentThreads_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="PerformanceCommentThreads" EntitySet="PerformanceCommentThreads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Performances_ToTable_Band" Association="Self.FK_Performances_ToTable_Band">
+      <End Role="Band" EntitySet="Band" />
+      <End Role="Performances" EntitySet="Performances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Performances_ToTable_Location" Association="Self.FK_Performances_ToTable_Location">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Performances" EntitySet="Performances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShowList_ToTable" Association="Self.FK_ShowList_ToTable">
+      <End Role="Performances" EntitySet="Performances" />
+      <End Role="ShowList" EntitySet="ShowList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShowList_ToTable_UserId" Association="Self.FK_ShowList_ToTable_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="ShowList" EntitySet="ShowList" />
+    </AssociationSet>
+    <AssociationSet Name="MemberId" Association="Self.MemberId">
+      <End Role="BandMember" EntitySet="BandMember" />
+      <End Role="BandMembersList" EntitySet="BandMembersList" />
+    </AssociationSet>
+    <AssociationSet Name="PerformancesIndetfier" Association="Self.PerformancesIndetfier">
+      <End Role="Performances" EntitySet="Performances" />
+      <End Role="SetList" EntitySet="SetList" />
+    </AssociationSet>
+    <AssociationSet Name="SongIdIdentIdentifier" Association="Self.SongIdIdentIdentifier">
+      <End Role="Songs" EntitySet="Songs" />
+      <End Role="SetList" EntitySet="SetList" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
