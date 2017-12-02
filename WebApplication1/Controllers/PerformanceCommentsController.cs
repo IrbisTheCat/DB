@@ -20,6 +20,13 @@ namespace WebApplication1.Controllers
         {
             
             var performanceCommentThreads = db.PerformanceCommentThreads.Include(p => p.AspNetUser).Include(p => p.Performance).Where(p => p.PerformanceID == perfId);
+            var perf = db.Performances.Where(per => per.Id ==perfId).Single();
+            var loc = db.Locations.Where(loct => loct.Id == perf.LocationId).Single();
+            //TODO Fix Query tO DISPLAY ALL THE SONGS
+            var setList = db.SetLists.Where(p => p.PerformanceID == perf.Id).Include(z => z.Song);
+            ViewBag.Set = setList;
+            ViewBag.Loc = loc;
+            ViewBag.Perf = perf;
             return View(performanceCommentThreads.ToList());
         }
 

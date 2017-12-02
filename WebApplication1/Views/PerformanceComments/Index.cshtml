@@ -4,50 +4,71 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>
+    @ViewBag.Perf.Name
+</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <b>@ViewBag.Perf.Date </b><br />
+    <b>@ViewBag.Loc.LocationName</b> <br />
+    @ViewBag.Loc.StreetAddress <br />
+    @ViewBag.Loc.City <br />
+    @ViewBag.Loc.State
+    @ViewBag.Loc.ZIP <br />
 </p>
- 
 
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Comment)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AspNetUser.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Performance.Name)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Performance.Name)
-        </td>
-        <td>
-@if (item.AspNetUser.Email == User.Identity.Name)
+@foreach (var item in ViewBag.Set)
 {
-    <span>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-    </span>
-}
-</td>
-    </tr>
-}
+    <dl>
+        !--
+        <dt>@item.SongName</dt>
+    </dl>
+    }
 
-</table>
+
+
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+
+
+
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Comment)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AspNetUser.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Performance.Name)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Comment)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Performance.Name)
+                        </td>
+                        <td>
+                            @if (item.AspNetUser.Email == User.Identity.Name)
+                            {
+                                <span>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                </span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>

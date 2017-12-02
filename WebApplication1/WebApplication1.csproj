@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.4\lib\net451\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -195,9 +198,11 @@
     <Compile Include="Controllers\BandCommentsController.cs" />
     <Compile Include="Controllers\BandsController.cs" />
     <Compile Include="Controllers\FavoriteBandCommentsController.cs" />
+    <Compile Include="Controllers\FavoriteBandListController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PerformanceCommentsController.cs" />
     <Compile Include="Controllers\SetListsController.cs" />
+    <Compile Include="Controllers\ShowListController.cs" />
     <Compile Include="Controllers\SomethingElseController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SongsController.cs" />
@@ -384,6 +389,16 @@
     <Content Include="Views\FavoriteBandComments\Details.cshtml" />
     <Content Include="Views\FavoriteBandComments\Edit.cshtml" />
     <Content Include="Views\FavoriteBandComments\Index.cshtml" />
+    <Content Include="Views\FavoriteBandList\Create.cshtml" />
+    <Content Include="Views\FavoriteBandList\Delete.cshtml" />
+    <Content Include="Views\FavoriteBandList\Details.cshtml" />
+    <Content Include="Views\FavoriteBandList\Edit.cshtml" />
+    <Content Include="Views\FavoriteBandList\Index.cshtml" />
+    <Content Include="Views\ShowList\Create.cshtml" />
+    <Content Include="Views\ShowList\Delete.cshtml" />
+    <Content Include="Views\ShowList\Details.cshtml" />
+    <Content Include="Views\ShowList\Edit.cshtml" />
+    <Content Include="Views\ShowList\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

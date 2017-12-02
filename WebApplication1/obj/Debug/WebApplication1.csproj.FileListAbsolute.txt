@@ -69,3 +69,5 @@ C:\Users\annas\source\repos\WebApplication1\WebApplication1\obj\Debug\WebApplica
 C:\Users\annas\source\repos\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 C:\Users\annas\source\repos\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
 C:\Users\annas\source\repos\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
+C:\Users\annas\source\repos\WebApplication1\WebApplication1\bin\Dapper.dll
+C:\Users\annas\source\repos\WebApplication1\WebApplication1\bin\Dapper.xml

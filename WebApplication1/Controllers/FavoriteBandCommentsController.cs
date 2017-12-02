@@ -39,6 +39,9 @@ namespace WebApplication1.Controllers
         }
 
         // GET: FavoriteBandComments/Create
+        /*@
+         * 
+         */
         public ActionResult Create()
         {
             ViewBag.UserId = new SelectList(db.AspNetUsers.Where(u=>u.Email== User.Identity.Name), "Id", "Email");
