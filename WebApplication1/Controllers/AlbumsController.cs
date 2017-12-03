@@ -91,6 +91,8 @@ namespace WebApplication1.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.BandID = new SelectList(db.Bands, "Id", "BandName", album.BandID);
+
+           
             return View(album);
         }
 

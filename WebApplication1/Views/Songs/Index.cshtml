@@ -20,6 +20,10 @@
         <th>
             @Html.DisplayNameFor(model => model.Band.BandName)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlbumNumber)
+        </th>
+
         <th></th>
     </tr>
 
@@ -33,6 +37,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Band.BandName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlbumNumber)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

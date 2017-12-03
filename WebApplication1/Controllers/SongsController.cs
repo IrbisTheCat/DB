@@ -40,6 +40,7 @@ namespace WebApplication1.Controllers
         public ActionResult Create()
         {
             ViewBag.BandID = new SelectList(db.Bands, "Id", "BandName");
+            ViewBag.AlNum = new SelectList(db.Albums, "Id", "RecordLable");
             return View();
         }
 
@@ -48,7 +49,7 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,SongName,ReleaseDate,BandID")] Song song)
+        public ActionResult Create([Bind(Include = "Id,SongName,ReleaseDate,BandID, AlbumNumber")] Song song)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +59,8 @@ namespace WebApplication1.Controllers
             }
 
             ViewBag.BandID = new SelectList(db.Bands, "Id", "BandName", song.BandID);
+            ViewBag.AlNum = new SelectList(db.Albums, "Id", "RecordLable", song.AlbumNumber);
+
             return View(song);
         }
 
@@ -74,6 +77,7 @@ namespace WebApplication1.Controllers
                 return HttpNotFound();
             }
             ViewBag.BandID = new SelectList(db.Bands, "Id", "BandName", song.BandID);
+            ViewBag.AlNum = new SelectList(db.Albums, "Id", "RecordLable", song.AlbumNumber);
             return View(song);
         }
 
@@ -82,7 +86,7 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,SongName,ReleaseDate,BandID")] Song song)
+        public ActionResult Edit([Bind(Include = "Id,SongName,ReleaseDate,BandID, AlbumNumber")] Song song)
         {
             if (ModelState.IsValid)
             {
@@ -91,6 +95,7 @@ namespace WebApplication1.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.BandID = new SelectList(db.Bands, "Id", "BandName", song.BandID);
+            ViewBag.AlNum = new SelectList(db.Albums, "Id", "RecordLable", song.AlbumNumber);
             return View(song);
         }
 
