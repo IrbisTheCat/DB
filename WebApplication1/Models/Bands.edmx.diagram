@@ -41,6 +41,7 @@
         <AssociationConnector Association="Model.FK_PerformanceCommentThreads_PerformanceID" />
         <AssociationConnector Association="Model.PerformancesIndetfier" />
         <AssociationConnector Association="Model.SongIdIdentIdentifier" />
+        <EntityTypeShape EntityType="Model.Table" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

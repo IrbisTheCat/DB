@@ -141,6 +141,7 @@
     <EntitySetMapping Name="Songs">
       <EntityTypeMapping TypeName="Model.Song">
         <MappingFragment StoreEntitySet="Songs">
+          <ScalarProperty Name="AlbumNumber" ColumnName="AlbumNumber" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SongName" ColumnName="SongName" />
           <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
@@ -181,6 +182,13 @@
         <MappingFragment StoreEntitySet="SetList">
           <ScalarProperty Name="SongID" ColumnName="SongID" />
           <ScalarProperty Name="PerformanceID" ColumnName="PerformanceID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tables">
+      <EntityTypeMapping TypeName="Model.Table">
+        <MappingFragment StoreEntitySet="Table">
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

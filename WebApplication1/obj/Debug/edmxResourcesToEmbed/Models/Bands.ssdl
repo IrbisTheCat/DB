@@ -169,6 +169,13 @@
     <Property Name="SongName" Type="varchar(max)" />
     <Property Name="ReleaseDate" Type="datetime" />
     <Property Name="BandID" Type="bigint" />
+    <Property Name="AlbumNumber" Type="int" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="BandId">
     <End Role="Band" Type="Self.Band" Multiplicity="0..1" />
@@ -437,6 +444,7 @@
     <EntitySet Name="SetList" EntityType="Self.SetList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ShowList" EntityType="Self.ShowList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Songs" EntityType="Self.Songs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="BandId" Association="Self.BandId">
       <End Role="Band" EntitySet="Band" />
       <End Role="Album" EntitySet="Album" />

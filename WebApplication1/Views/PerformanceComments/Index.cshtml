@@ -17,15 +17,16 @@
     @ViewBag.Loc.ZIP <br />
 </p>
 
+<h4>SetList</h4>
 @foreach (var item in ViewBag.Set)
 {
-    <dl>
-        !--
-        <dt>@item.Song.SongName</dt>
-    </dl>
-    }
+    
 
+        <b>@item.Song.SongName</b><br />
+}
 
+<br/>
+<br/>
 
             <p>
                 @Html.ActionLink("Create New", "Create")

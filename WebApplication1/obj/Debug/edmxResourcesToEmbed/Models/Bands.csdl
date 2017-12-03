@@ -167,6 +167,7 @@
     <Property Name="BandID" Type="Int64" />
     <NavigationProperty Name="Band" Relationship="Self.Bandit" FromRole="Songs" ToRole="Band" />
     <NavigationProperty Name="SetLists" Relationship="Model.SongIdIdentIdentifier" FromRole="Song" ToRole="SetList" />
+    <Property Name="AlbumNumber" Type="Int32" />
   </EntityType>
   <Association Name="BandId">
     <End Role="Band" Type="Self.Band" Multiplicity="0..1" />
@@ -414,6 +415,7 @@
       <End Role="Song" EntitySet="Songs" />
       <End Role="SetList" EntitySet="SetLists" />
     </AssociationSet>
+    <EntitySet Name="Tables" EntityType="Model.Table" />
   </EntityContainer>
   <EntityType Name="BandComment">
     <Key>
@@ -519,4 +521,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

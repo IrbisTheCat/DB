@@ -24,6 +24,7 @@ namespace WebApplication1.Models
         public string SongName { get; set; }
         public Nullable<System.DateTime> ReleaseDate { get; set; }
         public Nullable<long> BandID { get; set; }
+        public Nullable<int> AlbumNumber { get; set; }
     
         public virtual Band Band { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

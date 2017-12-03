@@ -42,5 +42,6 @@ namespace WebApplication1.Models
         public virtual DbSet<BandComment> BandComments { get; set; }
         public virtual DbSet<PerformanceCommentThread> PerformanceCommentThreads { get; set; }
         public virtual DbSet<SetList> SetLists { get; set; }
+        public virtual DbSet<Table> Tables { get; set; }
     }
 }

@@ -23,9 +23,11 @@
                 <li>@Html.ActionLink("Favorite Bands", "Index", "FavoriteBandList")</li>
                 <li>@Html.ActionLink("Shows Attended", "Index", "ShowList")</li>
 
-                if (User.IsInRole("moderator")){
-                <li>@Html.ActionLink("EBands", "Index", "Bands")</li>
-                <li>@Html.ActionLink("EPerformances", "Index", "Performance")</li>
+                @if (User.IsInRole("moderator")){
+                <li>@Html.ActionLink("Bands", "Index", "Bands")</li>
+                <li>@Html.ActionLink("Performances", "Index", "Performance")</li>
+                <li>@Html.ActionLink("SetLists", "Index", "SetLists")</li>
+                <li>@Html.ActionLink("Locations", "Index", "Locations")</li>
                 }
 
             </ul>
