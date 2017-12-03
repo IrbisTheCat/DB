@@ -42,8 +42,12 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.FavoriteBandLists.Add(favoriteBandList);
-                db.SaveChanges();
+                if (!db.FavoriteBandLists.Any(row => row.UserId == favoriteBandList.UserId && row.BandId == favoriteBandList.BandId))
+                {
+
+                    db.FavoriteBandLists.Add(favoriteBandList);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
 

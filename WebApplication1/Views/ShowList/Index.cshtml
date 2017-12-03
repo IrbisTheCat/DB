@@ -4,16 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 style="text-align:center;">Shows I Attended</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.AspNetUser.Email)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Performance.Name)
         </th>
@@ -22,18 +17,19 @@
 
 @foreach (var item in Model) {
     <tr>
+>
         <td>
-            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+            @Html.ActionLink(item.Performance.Name, "Index", "PerformanceComments", new { perfId = item.Id }, null)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Performance.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
 }
 
 </table>
+
+<button >
+    @Html.ActionLink("Create New", "Create")
+</button>
+

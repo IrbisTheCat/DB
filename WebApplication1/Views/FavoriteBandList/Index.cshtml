@@ -1,19 +1,14 @@
 ﻿@model IEnumerable<WebApplication1.Models.FavoriteBandList>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "My Favorite Bands";
 }
 
-<h2>Index</h2>
+<h2 style="text-align:center;">My Favorite Bands</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.AspNetUser.Email)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Band.BandName)
         </th>
@@ -23,17 +18,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+            @Html.ActionLink(item.Band.BandName, "Index", "BandComments", new { bandId = item.Id}, null)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Band.BandName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
 }
 
+
 </table>
+<button>
+    @Html.ActionLink("Create New", "Create")
+</button>

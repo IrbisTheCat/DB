@@ -19,11 +19,11 @@ namespace WebApplication1.Controllers
         public ActionResult Index(int perfId)
         {
             
-            var performanceCommentThreads = db.PerformanceCommentThreads.Include(p => p.AspNetUser).Include(p => p.Performance).Where(p => p.PerformanceID == perfId);
-            var perf = db.Performances.Where(per => per.Id ==perfId).Single();
-            var loc = db.Locations.Where(loct => loct.Id == perf.LocationId).Single();
+            var performanceCommentThreads = db.PerformanceCommentThreads.Include(p => p.AspNetUser).Include(p => p.Performance).Where(p => p.PerformanceID == perfId).ToList();
+            var perf = db.Performances.Where(per => per.Id ==perfId).SingleOrDefault();
+            var loc = db.Locations.Where(loct => loct.Id == perf.LocationId).SingleOrDefault();
             //TODO Fix Query tO DISPLAY ALL THE SONGS
-            var setList = db.SetLists.Where(p => p.PerformanceID == perf.Id).Include(z => z.Song);
+            var setList = db.SetLists.Include(z => z.Song).Where(p => p.PerformanceID == perf.Id).ToList();
             ViewBag.Set = setList;
             ViewBag.Loc = loc;
             ViewBag.Perf = perf;

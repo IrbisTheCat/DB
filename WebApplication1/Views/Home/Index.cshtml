@@ -4,11 +4,9 @@
     ViewBag.Title = "List of Bands and Performances";
 }
 
-<h2>Index</h2>
+<h2 style="text-align:center;">Home</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -29,7 +27,7 @@
 @foreach (var performance in item.Performances)
 {
    
-    @Html.ActionLink(performance.Name,"Index", "PerformanceComments", new { perfId=performance.Id }, null)
+    @Html.ActionLink(performance.Name,"Index", "PerformanceComments", new { perfId=performance.Id}, null)
     <br />
     <div>
         @Html.DisplayFor(modelItem => performance.Date)
@@ -51,3 +49,11 @@
 }
 
 </table>
+
+<!--<button>
+    //if (User.IsInRole("moderator"))
+  //  {
+       // Html.ActionLink("Create New", "Create")
+   // }
+</button>
+    -->

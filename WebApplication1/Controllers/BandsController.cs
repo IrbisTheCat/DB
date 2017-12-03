@@ -51,6 +51,7 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 db.Bands.Add(band);
                 db.SaveChanges();
                 return RedirectToAction("Index");

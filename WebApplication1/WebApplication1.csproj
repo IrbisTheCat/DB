@@ -200,7 +200,9 @@
     <Compile Include="Controllers\FavoriteBandCommentsController.cs" />
     <Compile Include="Controllers\FavoriteBandListController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\PerformanceCommentsController.cs" />
+    <Compile Include="Controllers\PerformanceController.cs" />
     <Compile Include="Controllers\SetListsController.cs" />
     <Compile Include="Controllers\ShowListController.cs" />
     <Compile Include="Controllers\SomethingElseController.cs" />
@@ -399,6 +401,16 @@
     <Content Include="Views\ShowList\Details.cshtml" />
     <Content Include="Views\ShowList\Edit.cshtml" />
     <Content Include="Views\ShowList\Index.cshtml" />
+    <Content Include="Views\Performance\Create.cshtml" />
+    <Content Include="Views\Performance\Delete.cshtml" />
+    <Content Include="Views\Performance\Details.cshtml" />
+    <Content Include="Views\Performance\Edit.cshtml" />
+    <Content Include="Views\Performance\Index.cshtml" />
+    <Content Include="Views\Locations\Create.cshtml" />
+    <Content Include="Views\Locations\Delete.cshtml" />
+    <Content Include="Views\Locations\Details.cshtml" />
+    <Content Include="Views\Locations\Edit.cshtml" />
+    <Content Include="Views\Locations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

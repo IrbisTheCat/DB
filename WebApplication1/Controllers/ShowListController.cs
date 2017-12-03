@@ -10,6 +10,7 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
+    [Authorize]
     public class ShowListController : Controller
     {
         private Entities db = new Entities();
@@ -54,8 +55,11 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.ShowLists.Add(showList);
-                db.SaveChanges();
+                if (!db.ShowLists.Any( row => row.UserId == showList.UserId && row.PerformanceId == showList.PerformanceId))
+                {
+                    db.ShowLists.Add(showList);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
 
