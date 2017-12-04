@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="6" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Band" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.BandMember" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.BandMembersList" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.BandMembersList" Width="1.5" PointX="3.875" PointY="9.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.FavoriteBandList" Width="1.5" PointX="6" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Location" Width="1.5" PointX="3.75" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Performance" Width="1.5" PointX="6" PointY="2.875" IsExpanded="true" />
@@ -33,7 +33,7 @@
         <AssociationConnector Association="Model.FK_ShowList_ToTable" ManuallyRouted="false" />
         <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
         <EntityTypeShape EntityType="Model.BandComment" Width="1.5" PointX="11.25" PointY="10.75" />
-        <EntityTypeShape EntityType="Model.PerformanceCommentThread" Width="1.5" PointX="8.25" PointY="8.75" />
+        <EntityTypeShape EntityType="Model.PerformanceCommentThread" Width="1.5" PointX="8.875" PointY="8.125" />
         <EntityTypeShape EntityType="Model.SetList" Width="1.5" PointX="11.25" PointY="7.25" />
         <AssociationConnector Association="Model.FK_BandComments_UserId" />
         <AssociationConnector Association="Model.FK_PerformanceCommentThreads_UserId" />
@@ -41,7 +41,6 @@
         <AssociationConnector Association="Model.FK_PerformanceCommentThreads_PerformanceID" />
         <AssociationConnector Association="Model.PerformancesIndetfier" />
         <AssociationConnector Association="Model.SongIdIdentIdentifier" />
-        <EntityTypeShape EntityType="Model.Table" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

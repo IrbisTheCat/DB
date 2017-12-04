@@ -15,8 +15,8 @@ namespace WebApplication1.Models
     public partial class BandMembersList
     {
         public int Id { get; set; }
-        public Nullable<long> BandId { get; set; }
-        public Nullable<long> BandMember { get; set; }
+        public long BandId { get; set; }
+        public long BandMember { get; set; }
     
         public virtual Band Band { get; set; }
         public virtual BandMember BandMember1 { get; set; }

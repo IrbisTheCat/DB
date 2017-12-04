@@ -281,9 +281,6 @@
     <Compile Include="Models\Song.cs">
       <DependentUpon>Bands.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Table.cs">
-      <DependentUpon>Bands.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

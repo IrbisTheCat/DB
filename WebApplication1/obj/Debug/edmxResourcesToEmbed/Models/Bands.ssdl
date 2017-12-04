@@ -16,7 +16,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RecordLable" Type="varchar(max)" />
-    <Property Name="BandID" Type="bigint" />
+    <Property Name="BandID" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="AspNetRoles">
     <Key>
@@ -83,8 +83,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="BandID" Type="bigint" />
-    <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+    <Property Name="BandID" Type="bigint" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="Comment" Type="text" />
   </EntityType>
   <EntityType Name="BandMember">
@@ -102,8 +102,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="BandId" Type="bigint" />
-    <Property Name="BandMember" Type="bigint" />
+    <Property Name="BandId" Type="bigint" Nullable="false" />
+    <Property Name="BandMember" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="FavoriteBandList">
     <Key>
@@ -130,8 +130,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Comment" Type="varchar(max)" />
-    <Property Name="UserId" Type="nvarchar" MaxLength="128" />
-    <Property Name="PerformanceID" Type="int" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PerformanceID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Performances">
     <Key>
@@ -171,14 +171,8 @@
     <Property Name="BandID" Type="bigint" />
     <Property Name="AlbumNumber" Type="int" />
   </EntityType>
-  <EntityType Name="Table">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-  </EntityType>
   <Association Name="BandId">
-    <End Role="Band" Type="Self.Band" Multiplicity="0..1" />
+    <End Role="Band" Type="Self.Band" Multiplicity="1" />
     <End Role="Album" Type="Self.Album" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Band">
@@ -202,7 +196,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_BandComments_BandId">
-    <End Role="Band" Type="Self.Band" Multiplicity="0..1" />
+    <End Role="Band" Type="Self.Band" Multiplicity="1" />
     <End Role="BandComments" Type="Self.BandComments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Band">
@@ -214,7 +208,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_BandComments_UserId">
-    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
     <End Role="BandComments" Type="Self.BandComments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AspNetUsers">
@@ -226,7 +220,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_BandMembersList_ToTable_BandID">
-    <End Role="Band" Type="Self.Band" Multiplicity="0..1" />
+    <End Role="Band" Type="Self.Band" Multiplicity="1" />
     <End Role="BandMembersList" Type="Self.BandMembersList" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Band">
@@ -318,7 +312,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PerformanceCommentThreads_PerformanceID">
-    <End Role="Performances" Type="Self.Performances" Multiplicity="0..1" />
+    <End Role="Performances" Type="Self.Performances" Multiplicity="1" />
     <End Role="PerformanceCommentThreads" Type="Self.PerformanceCommentThreads" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Performances">
@@ -330,7 +324,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PerformanceCommentThreads_UserId">
-    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
     <End Role="PerformanceCommentThreads" Type="Self.PerformanceCommentThreads" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AspNetUsers">
@@ -390,7 +384,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="MemberId">
-    <End Role="BandMember" Type="Self.BandMember" Multiplicity="0..1" />
+    <End Role="BandMember" Type="Self.BandMember" Multiplicity="1" />
     <End Role="BandMembersList" Type="Self.BandMembersList" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="BandMember">
@@ -444,7 +438,6 @@
     <EntitySet Name="SetList" EntityType="Self.SetList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ShowList" EntityType="Self.ShowList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Songs" EntityType="Self.Songs" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="BandId" Association="Self.BandId">
       <End Role="Band" EntitySet="Band" />
       <End Role="Album" EntitySet="Album" />

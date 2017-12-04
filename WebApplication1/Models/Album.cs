@@ -16,7 +16,7 @@ namespace WebApplication1.Models
     {
         public int Id { get; set; }
         public string RecordLable { get; set; }
-        public Nullable<long> BandID { get; set; }
+        public long BandID { get; set; }
     
         public virtual Band Band { get; set; }
     }

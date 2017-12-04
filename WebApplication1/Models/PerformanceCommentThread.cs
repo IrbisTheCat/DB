@@ -17,7 +17,7 @@ namespace WebApplication1.Models
         public int Id { get; set; }
         public string Comment { get; set; }
         public string UserId { get; set; }
-        public Nullable<int> PerformanceID { get; set; }
+        public int PerformanceID { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual Performance Performance { get; set; }

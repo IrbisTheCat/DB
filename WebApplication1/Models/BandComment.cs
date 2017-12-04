@@ -15,7 +15,7 @@ namespace WebApplication1.Models
     public partial class BandComment
     {
         public int Id { get; set; }
-        public Nullable<long> BandID { get; set; }
+        public long BandID { get; set; }
         public string UserId { get; set; }
         public string Comment { get; set; }
     
