@@ -27,6 +27,7 @@ namespace WebApplication1.Controllers
             ViewBag.Set = setList;
             ViewBag.Loc = loc;
             ViewBag.Perf = perf;
+            ViewBag.IDT = perfId;
             return View(performanceCommentThreads.ToList());
         }
 
@@ -129,12 +130,12 @@ namespace WebApplication1.Controllers
         // POST: PerformanceComments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id, int perfID)
         {
             PerformanceCommentThread performanceCommentThread = db.PerformanceCommentThreads.Find(id);
             db.PerformanceCommentThreads.Remove(performanceCommentThread);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", perfID);
         }
 
         protected override void Dispose(bool disposing)

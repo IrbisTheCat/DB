@@ -25,7 +25,7 @@ namespace WebApplication1.Models
         public int Id { get; set; }
         public long BandId { get; set; }
         public long LocationId { get; set; }
-        public long SetListId { get; set; }
+        public Nullable<long> SetListId { get; set; }
         public Nullable<System.TimeSpan> Duriation { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public string Name { get; set; }

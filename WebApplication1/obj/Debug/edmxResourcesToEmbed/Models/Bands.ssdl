@@ -68,6 +68,8 @@
     <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
     <Property Name="AccessFailedCount" Type="int" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="FirstName" Type="nchar" MaxLength="10" />
+    <Property Name="LastName" Type="nchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Band">
     <Key>
@@ -140,7 +142,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="BandId" Type="bigint" Nullable="false" />
     <Property Name="LocationId" Type="bigint" Nullable="false" />
-    <Property Name="SetListId" Type="bigint" Nullable="false" />
+    <Property Name="SetListId" Type="bigint" />
     <Property Name="Duriation" Type="time" Precision="7" />
     <Property Name="Date" Type="datetime" />
     <Property Name="Name" Type="varchar(max)" />
@@ -208,7 +210,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_BandComments_UserId">
-    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="BandComments" Type="Self.BandComments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AspNetUsers">
@@ -300,7 +304,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_FavoriteBandList_ToTable_1">
-    <End Role="Band" Type="Self.Band" Multiplicity="1" />
+    <End Role="Band" Type="Self.Band" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="FavoriteBandList" Type="Self.FavoriteBandList" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Band">
@@ -324,7 +330,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PerformanceCommentThreads_UserId">
-    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="PerformanceCommentThreads" Type="Self.PerformanceCommentThreads" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AspNetUsers">

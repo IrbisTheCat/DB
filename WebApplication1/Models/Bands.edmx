@@ -73,6 +73,8 @@
           <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="FirstName" Type="nchar" MaxLength="10" />
+          <Property Name="LastName" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Band">
           <Key>
@@ -145,7 +147,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BandId" Type="bigint" Nullable="false" />
           <Property Name="LocationId" Type="bigint" Nullable="false" />
-          <Property Name="SetListId" Type="bigint" Nullable="false" />
+          <Property Name="SetListId" Type="bigint" />
           <Property Name="Duriation" Type="time" Precision="7" />
           <Property Name="Date" Type="datetime" />
           <Property Name="Name" Type="varchar(max)" />
@@ -213,7 +215,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BandComments_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="BandComments" Type="Self.BandComments" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUsers">
@@ -305,7 +309,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FavoriteBandList_ToTable_1">
-          <End Role="Band" Type="Self.Band" Multiplicity="1" />
+          <End Role="Band" Type="Self.Band" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="FavoriteBandList" Type="Self.FavoriteBandList" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Band">
@@ -329,7 +335,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PerformanceCommentThreads_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PerformanceCommentThreads" Type="Self.PerformanceCommentThreads" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUsers">
@@ -599,6 +607,8 @@
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
           <NavigationProperty Name="BandComments" Relationship="Model.FK_BandComments_UserId" FromRole="AspNetUser" ToRole="BandComment" />
           <NavigationProperty Name="PerformanceCommentThreads" Relationship="Model.FK_PerformanceCommentThreads_UserId" FromRole="AspNetUser" ToRole="PerformanceCommentThread" />
+          <Property Name="FirstName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Band">
           <Key>
@@ -665,7 +675,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BandId" Type="Int64" Nullable="false" />
           <Property Name="LocationId" Type="Int64" Nullable="false" />
-          <Property Name="SetListId" Type="Int64" Nullable="false" />
+          <Property Name="SetListId" Type="Int64" />
           <Property Name="Duriation" Type="Time" Precision="7" />
           <Property Name="Date" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Band" Relationship="Self.FK_Performances_ToTable_Band" FromRole="Performances" ToRole="Band" />
@@ -1103,6 +1113,8 @@
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="Model.AspNetUser">
               <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
