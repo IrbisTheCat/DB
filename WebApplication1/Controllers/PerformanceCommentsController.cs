@@ -66,7 +66,7 @@ namespace WebApplication1.Controllers
             {
                 db.PerformanceCommentThreads.Add(performanceCommentThread);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { perfId = performanceCommentThread.PerformanceID });
             }
 
             ViewBag.UserId = new SelectList(db.AspNetUsers.Where(u => u.Email == User.Identity.Name), "Id", "Email");
@@ -135,7 +135,7 @@ namespace WebApplication1.Controllers
             PerformanceCommentThread performanceCommentThread = db.PerformanceCommentThreads.Find(id);
             db.PerformanceCommentThreads.Remove(performanceCommentThread);
             db.SaveChanges();
-            return RedirectToAction("Index", perfID);
+            return RedirectToAction("Index", new { perfId = performanceCommentThread.PerformanceID });
         }
 
         protected override void Dispose(bool disposing)

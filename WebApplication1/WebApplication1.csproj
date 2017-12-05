@@ -198,6 +198,8 @@
     <Compile Include="Controllers\AlbumsController.cs" />
     <Compile Include="Controllers\AspNetUsersController.cs" />
     <Compile Include="Controllers\BandCommentsController.cs" />
+    <Compile Include="Controllers\BandMembersController.cs" />
+    <Compile Include="Controllers\BandMembersListsController.cs" />
     <Compile Include="Controllers\BandsController.cs" />
     <Compile Include="Controllers\FavoriteBandCommentsController.cs" />
     <Compile Include="Controllers\FavoriteBandListController.cs" />
@@ -423,6 +425,16 @@
     <Content Include="Views\AspNetUsers\Details.cshtml" />
     <Content Include="Views\AspNetUsers\Edit.cshtml" />
     <Content Include="Views\AspNetUsers\Index.cshtml" />
+    <Content Include="Views\BandMembers\Create.cshtml" />
+    <Content Include="Views\BandMembers\Delete.cshtml" />
+    <Content Include="Views\BandMembers\Details.cshtml" />
+    <Content Include="Views\BandMembers\Edit.cshtml" />
+    <Content Include="Views\BandMembers\Index.cshtml" />
+    <Content Include="Views\BandMembersLists\Create.cshtml" />
+    <Content Include="Views\BandMembersLists\Delete.cshtml" />
+    <Content Include="Views\BandMembersLists\Details.cshtml" />
+    <Content Include="Views\BandMembersLists\Edit.cshtml" />
+    <Content Include="Views\BandMembersLists\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

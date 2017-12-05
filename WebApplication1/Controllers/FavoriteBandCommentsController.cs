@@ -16,11 +16,11 @@ namespace WebApplication1.Controllers
         private Entities db = new Entities();
 
         // GET: FavoriteBandComments
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
             var favoriteBands = db.FavoriteBandLists.Where(fb => fb.AspNetUser.Email == User.Identity.Name);
             var bandComments = db.BandComments.Join(favoriteBands, bc=>bc.BandID, fb=>fb.BandId, (bc,fb)=> bc).Include(b => b.AspNetUser).Include(b => b.Band);
-            return View(bandComments.ToList());
+            return View(bandComments.Where(bc=> bc.BandID==id).ToList());
         }
 
         // GET: FavoriteBandComments/Details/5
@@ -61,7 +61,7 @@ namespace WebApplication1.Controllers
             {
                 db.BandComments.Add(bandComment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { bandIDD=bandComment.BandID});
             }
 
             ViewBag.UserId = new SelectList(db.AspNetUsers.Where(u => u.Email == User.Identity.Name), "Id", "Email", bandComment.UserId);
@@ -99,7 +99,7 @@ namespace WebApplication1.Controllers
             {
                 db.Entry(bandComment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { bandIDD = bandComment.BandID });
             }
             ViewBag.UserId = new SelectList(db.AspNetUsers.Where(u => u.Email == User.Identity.Name), "Id", "Email", bandComment.UserId);
             var favoriteBands = db.FavoriteBandLists.Where(fb => fb.AspNetUser.Email == User.Identity.Name);
@@ -130,7 +130,7 @@ namespace WebApplication1.Controllers
             BandComment bandComment = db.BandComments.Find(id);
             db.BandComments.Remove(bandComment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { bandIDD = bandComment.BandID });
         }
 
         protected override void Dispose(bool disposing)

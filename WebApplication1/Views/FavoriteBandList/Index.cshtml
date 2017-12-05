@@ -18,7 +18,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink(item.Band.BandName, "Index", "FavoriteBandComments", new { bandId = item.Id}, null)
+            @Html.ActionLink(item.Band.BandName, "Index", "FavoriteBandComments", new { bandId = item.BandId},null)
         </td>
         <td>
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
