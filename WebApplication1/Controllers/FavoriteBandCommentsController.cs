@@ -61,7 +61,7 @@ namespace WebApplication1.Controllers
             {
                 db.BandComments.Add(bandComment);
                 db.SaveChanges();
-                return RedirectToAction("Index", new { bandIDD=bandComment.BandID});
+                return RedirectToAction("Index", new { id=bandComment.BandID});
             }
 
             ViewBag.UserId = new SelectList(db.AspNetUsers.Where(u => u.Email == User.Identity.Name), "Id", "Email", bandComment.UserId);
@@ -99,7 +99,7 @@ namespace WebApplication1.Controllers
             {
                 db.Entry(bandComment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index", new { bandIDD = bandComment.BandID });
+                return RedirectToAction("Index", new { id = bandComment.BandID });
             }
             ViewBag.UserId = new SelectList(db.AspNetUsers.Where(u => u.Email == User.Identity.Name), "Id", "Email", bandComment.UserId);
             var favoriteBands = db.FavoriteBandLists.Where(fb => fb.AspNetUser.Email == User.Identity.Name);
@@ -130,7 +130,7 @@ namespace WebApplication1.Controllers
             BandComment bandComment = db.BandComments.Find(id);
             db.BandComments.Remove(bandComment);
             db.SaveChanges();
-            return RedirectToAction("Index", new { bandIDD = bandComment.BandID });
+            return RedirectToAction("Index", new { id = bandComment.BandID });
         }
 
         protected override void Dispose(bool disposing)
