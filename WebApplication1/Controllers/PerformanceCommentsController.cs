@@ -46,7 +46,7 @@ namespace WebApplication1.Controllers
         }
 
         // GET: PerformanceComments/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
             ViewBag.UserId = new SelectList(db.AspNetUsers.Where(u => u.Email == User.Identity.Name), "Id", "Email");
             var performanceAttended = db.ShowLists.Where(fb => fb.AspNetUser.Email == User.Identity.Name);

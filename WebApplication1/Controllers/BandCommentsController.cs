@@ -40,7 +40,7 @@ namespace WebApplication1.Controllers
         }
 
         // GET: BandComments/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
             ViewBag.UserId = new SelectList(db.AspNetUsers, "Id", "Email");
             ViewBag.BandID = new SelectList(db.Bands, "Id", "BandName");

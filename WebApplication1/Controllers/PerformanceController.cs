@@ -51,7 +51,7 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,BandId,LocationId,SetListId,Duriation,Date,Name")] Performance performance)
+        public ActionResult Create([Bind(Include = "Id,BandId,LocationId,Duriation,Date,Name")] Performance performance)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,BandId,LocationId,SetListId,Duriation,Date,Name")] Performance performance)
+        public ActionResult Edit([Bind(Include = "Id,BandId,LocationId,Duriation,Date,Name")] Performance performance)
         {
             if (ModelState.IsValid)
             {
