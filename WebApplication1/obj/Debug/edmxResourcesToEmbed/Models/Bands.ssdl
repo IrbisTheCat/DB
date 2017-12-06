@@ -198,7 +198,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_BandComments_BandId">
-    <End Role="Band" Type="Self.Band" Multiplicity="1" />
+    <End Role="Band" Type="Self.Band" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="BandComments" Type="Self.BandComments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Band">
@@ -224,7 +226,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_BandMembersList_ToTable_BandID">
-    <End Role="Band" Type="Self.Band" Multiplicity="1" />
+    <End Role="Band" Type="Self.Band" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="BandMembersList" Type="Self.BandMembersList" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Band">
@@ -292,7 +296,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_FavoriteBandList_ToTable">
-    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="FavoriteBandList" Type="Self.FavoriteBandList" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AspNetUsers">
@@ -318,7 +324,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PerformanceCommentThreads_PerformanceID">
-    <End Role="Performances" Type="Self.Performances" Multiplicity="1" />
+    <End Role="Performances" Type="Self.Performances" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="PerformanceCommentThreads" Type="Self.PerformanceCommentThreads" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Performances">
@@ -392,7 +400,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="MemberId">
-    <End Role="BandMember" Type="Self.BandMember" Multiplicity="1" />
+    <End Role="BandMember" Type="Self.BandMember" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="BandMembersList" Type="Self.BandMembersList" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="BandMember">
